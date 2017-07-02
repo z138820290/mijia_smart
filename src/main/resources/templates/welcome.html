@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/common.css"/>
+
+</head>
+<body>
+    <div id="container">
+        <img id="welcome" th:src="@{http://os4yv5mgw.bkt.clouddn.com/image/welcome.jpg}"/>
+        <span id="show" onclick="toIndex()"></span>
+    </div>
+    <script src="/js/jquery-3.1.1.min.js"/>
+    <script type="text/javascript">
+        var t=5;//设定跳转的时间
+        setInterval("refer()",1000); //启动1秒定时
+        function refer(){
+            if(t==0){
+                window.location="/index"; //#设定跳转的链接地址
+                document.getElementById('show').innerHTML="跳过"
+            }
+            document.getElementById('show').innerHTML="跳过"+t; // 显示倒计时
+            t--; // 计数器递减
+            //本文转自：
+        }
+       function toIndex() {
+           window.location="/index"; //#设定跳转的链接地址
+       }
+    </script>
+</body>
+</html>

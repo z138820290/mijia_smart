@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxyk.mijia.mapper.CityMapper">
+    <resultMap id="selectAllCities" type="City">
+        <id column="cityId" property="cityId"></id>
+        <result column="cityName" property="cityName"></result>
+        <collection property="areas" ofType="Area">
+            <id column="areaId" property="areaId"></id>
+            <result column="areaName" property="areaName"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getAllCities" parameterType="String" resultMap="selectAllCities">
+        select city.cityId,city.cityName,areaId,areaName  from city,area where get_first_pinyin_char(cityName) = #{firstWord} AND area.cityId = city.cityId
+    </select>
+</mapper>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="height=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <title>登录</title>
+    <link rel="stylesheet" href="/css/user/login.css"/>
+</head>
+<body>
+<div id="message"></div>
+    <div id="container">
+        <div id="header"><img src="/image/user/login.jpg"/></div>
+        <div id="main">
+            <div id="input">
+                <div class="info" >手机</div>
+                <div class="info" ><input type="text" id="account"/></div>
+                <div class="info" >密码</div>
+                <div class="info" ><input type="password" id="password"/></div>
+            </div>
+        </div>
+        <div id="login"><button>登录</button><div id="forget"><a href="/user/find">忘记密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/user/register">点击注册</a></div></div>
+    </div>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var _data={};
+                _data.login=$("#account").val();
+                _data.password=$("#password").val();
+                $.ajax({
+                    type:"post",
+                    url:"/user/login",
+                    data:JSON.stringify(_data),
+                    contentType:"application/json",
+                    success:function (data) {
+                        function message() {
+                            $("#message").css("top",window.innerHeight/2-$("#message").height()/2);
+                            $("#message").css("left",window.innerWidth/2-$("#message").width()/2);
+                            $("#message").css("z-index","2");
+                        }
+                        $("#message").click(function () {
+                            $("#message").text("");
+                            $("#message").css("z-index","-1");
+                        })
+                        if(data=="1"){
+                            message();
+                            $("#message").text("手机号不存在");
+                        }else if (data=="2"){
+                            window.location="/index";
+                        }else {
+                            message();
+                            $("#message").text("密码输入有误");
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding:0;
+}
+html,body{
+    width: 100%;
+}
+#header{
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    background-color: #F34367;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    color: white;
+    font-family: 宋体;
+    width: 100%;
+}
+.top{
+    font-size: 1.5em;
+    align-items: center;
+    padding-top: 10px;
+}
+#area{
+    margin-top: 10px;
+}
+#header_center{
+
+    font-family: "Droid Sans";
+    font-size: 3em;
+}
+.function-img{
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    display: inline;
+    top: 50%;
+}
+
+ dl{
+     width:25%;
+     text-align: center;
+     float: left;
+     margin-top: 5%;
+}
+ dt img{
+     width: 40%;
+     height: 40%;
+ }
+ dd{
+     font-size: 2em;
+     color: black;
+ }
+ #main{
+     width: 100%;
+     height: 800px;
+     background: white;
+     display: flex;
+     display: -webkit-flex;
+     justify-content: space-around;
+     flex-flow: row wrap;
+ }
+ #show{
+     width: 45%;
+ }
+#main img{
+     border: 1px solid gainsboro;
+     margin:2%;
+     display: block;
+     box-shadow:1px 1px 1px gainsboro;
+ }
+ #show_r{
+     width: 45%;
+     display: flex;
+     display: -webkit-flex;
+     justify-content: space-around;
+     flex-flow: column wrap;
+ }
+#footer{
+    width: 100%;
+    height: 120px;
+    background-color: white;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    border-top: 1px solid gainsboro;
+}
+.icon_footer{
+    width: 22%;
+    height: 100%;
+    margin-left: 3%;
+}

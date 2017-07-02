@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxyk.mijia.mapper.UserMapper">
+    <insert id="addUser" parameterType="User">
+        INSERT INTO users(phoneNumber,realName,address,password,city)
+        VALUE (#{phoneNumber},#{realName},#{address},#{password},#{city})
+    </insert>
+    <select id="getUserByPhone" parameterType="String" resultType="User">
+        SELECT * FROM users WHERE phoneNumber=#{phoneNumber}
+    </select>
+    <update id="updateUser" parameterType="User">
+        UPDATE users
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="phoneNumber!=null">phoneNumber=#{phoneNumber},</if>
+            <if test="nickName!=null">nickName=#{nickName},</if>
+            <if test="realName!=null">realName=#{realName},</if>
+            <if test="address!=null">address=#{address},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="city!=null">city=#{city}</if>
+        WHERE id=#{id}
+        </trim>
+    </update>
+</mapper>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>选择地址</title>
+    <link rel="stylesheet" href="/css/user/address.css"/>
+</head>
+<body>
+    <div id="container">
+       <div id="header">
+           <div><img src="/image/user/icon_back.jpg" height="100%" width="100%"/></div>
+           <div class="choose">选择</div>
+           <div></div>
+       </div>
+        <div id="main">
+            <span th:each="word : ${words}">
+                <div class="word" th:id="${word}"></div>
+            </span>
+            <ul class="nav_city" th:each="cityList :${cities}">
+                <li  th:each="city : ${cityList}">
+                    <div class="city" th:id="${city.cityId}" th:text="${city.cityName}"></div>
+                    <ul class="nav_area">
+                        <li th:each="area : ${city.areas}">
+                            <div class="area" th:text="${area.areaName}" th:id="${area.areaId}"></div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/user/address.js"></script>
+</body>
+</html>

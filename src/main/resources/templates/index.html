@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>首页</title>
+    <link rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" href="/css/banner.css"/>
+    <link rel="stylesheet" href="/css/swiper-3.4.2.min.css"/>
+</head>
+<body>
+    <div id="header">
+        <div class="top" id="header_left" ><p id="area" th:text="${session.user ==null ? '请登录' : session.user.getCity().split('-')[1]}"></p></div>
+        <div class="top" id="header_center"><p>迷家</p></div>
+        <div class="top" id="header_right"><p><img th:src="@{http://os4yv5mgw.bkt.clouddn.com/image/message.jpg}" width="60%" /></p></div>
+            <div id="banner_tabs" class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <a title="" target="_blank" href="#">
+                            <img width="100%" height="20%" alt="" src="/image/banner_1.jpg" th:src="@{http://os4yv5mgw.bkt.clouddn.com/image/banner_1.jpg}"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a title="" href="#">
+                            <img width="100%" height="20%" alt="" src="/image/banner_2.jpg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a title="" href="#">
+                            <img width="100%" height="20%" alt="" src="/image/banner_3.jpg"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a title="" href="#">
+                            <img width="100%" height="20%" alt="" src="/image/banner_4.jpg"/>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="flex-direction-nav">
+                    <li><a class="flex-prev" href="javascript:;">Previous</a></li>
+                    <li><a class="flex-next" href="javascript:;">Next</a></li>
+                </ul>
+                <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                </ol>
+            </div>
+        <div class="swiper-container" >
+            <div class="swiper-wrapper" >
+                <div class="swiper-slide">
+                    <div class="function-img">
+                        <dl>
+                            <dt><img src="image/function/社区超市.jpg" /></dt>
+                            <dd>社区超市</dd>
+                        </dl>
+                    </div>
+                    <div class="function-img">
+                        <dl>
+                            <dt><img src="image/function/快递寄送.jpg" /></dt>
+                            <dd>快递寄送</dd>
+                        </dl>
+                    </div>
+                    <div class="function-img">
+                        <dl>
+                            <dt><img src="image/function/家政服务.jpg" /></dt>
+                            <dd>家政服务</dd>
+                        </dl>
+                    </div>
+                    <div class="function-img">
+                        <dl>
+                            <dt><img src="image/function/便民洗涤.jpg" /></dt>
+                            <dd>便民洗涤</dd>
+                        </dl>
+                    </div>
+                    <div class="function-img">
+                        <dl>
+                            <dt><img src="image/function/预约洗车.jpg" /></dt>
+                            <dd>预约洗车</dd>
+                        </dl>
+                    </div>
+                    <div class="function-img">
+                        <dl>
+                            <dt><img src="image/function/社区二手.jpg" /></dt>
+                            <dd>社区二手</dd>
+                        </dl>
+                    </div>
+                    <div class="function-img">
+                        <dl>
+                            <dt><img src="image/function/物业服务.jpg" /></dt>
+                            <dd>物业服务</dd>
+                        </dl>
+                    </div>
+                    <div class="function-img">
+                        <dl>
+                            <dt><img src="image/function/装修服务.jpg" /></dt>
+                            <dd>装修服务</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="swiper-slide"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div id="main">
+            <div id="show">
+                <img src="/image/main/show.jpg" height="97%" width="100%"/>
+            </div>
+            <div id="show_r">
+            <img src="image/main/show_r1.jpg" height="30%" width="100%"/>
+            <img src="image/main/show_r3.jpg" height="30%" width="100%"/>
+            <img src="image/main/show_r2.jpg" height="30%" width="100%"/>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="icon_footer" id="home"><img src="/image/footer/icon_home.jpg" height="100%" width="60%"/></div>
+            <div class="icon_footer" id="order"><img src="/image/footer/icon_order.jpg" height="100%" width="60%"/></div>
+            <div class="icon_footer" id="mine"><img src="/image/footer/icon_mine.jpg" height="100%" width="60%"/></div>
+            <div class="icon_footer" id="more"><img src="/image/footer/icon_more.jpg" height="100%" width="60%"/></div>
+        </div>
+    </div>
+<script src="/js/jquery-3.1.1.min.js"/>
+<script src="/js/slider.js"/>
+<script src="/js/swiper-3.4.2.min.js"/>
+<script src="/js/jquerySession.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var bannerSlider = new Slider($('#banner_tabs'), {
+            time: 5000,
+            delay: 400,
+            event: 'hover',
+            auto: true,
+            mode: 'fade',
+            controller: $('#bannerCtrl'),
+            activeControllerCls: 'active'
+        });
+        $('#banner_tabs .flex-prev').click(function() {
+            bannerSlider.prev()
+        });
+        $('#banner_tabs .flex-next').click(function() {
+            bannerSlider.next()
+        });
+    })
+</script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            initialSlide :0,
+            direction:'horizontal',
+            speed:300,
+            autoplayDisableOnInteraction:false,
+            grabCursor:true,
+            autoHeight: true,
+            pagination : '.swiper-pagination',
+            paginationType:'bullets',
+            paginationClickable :true,
+            mousewheelControl : true,
+            paginationHide :true,
+
+        })
+        $(".swiper-container").height(500)
+    </script>
+    <script>
+        $(function () {
+            if ($("#area").text()!=""){
+                var area=$("#area").text();
+                var arr=area.split("-")
+                $("#area").text(arr[1]);
+            }
+        })
+        $(function () {
+           if($("#area").text()!="请登录"){
+               $("#home").click(function () {
+                   window.location="/index"
+               })
+               $("#order").click(function () {
+                   window.location="/index"
+               })
+               $("#mine").click(function () {
+                   window.location="/index"
+               })
+               $("#more").click(function () {
+                   window.location="/index"
+               })
+           }else {
+             $("#header_left").click(function () {
+                window.location="/user/login"
+             })
+           }
+        })
+    </script>
+</body>
+</html>
