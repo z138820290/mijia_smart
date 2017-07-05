@@ -20,5 +20,10 @@ public interface CityMapper {
      */
     public List<City> getAllCities(@Param("firstWord") String firstWord);
 
+    /**
+     * 根据名称获取城市
+     * @param cityName
+     * @return
+     */
     public City getCityByName(String cityName);
 }

@@ -24,11 +24,6 @@ public interface AdvertMapper {
      */
     public void deleteAdvert(int id);
 
-    /**
-     * 修改广告
-     * @param advert
-     */
-    public void updateAdvert(Advert advert);
 
     /**
      * 添加广告

@@ -16,6 +16,8 @@ import java.util.List;
 @Data
 public class City implements Serializable{
     private int cityId;
+    //城市名称
     private String cityName;
+    //小区集合
     private List<Area> areas;
 }

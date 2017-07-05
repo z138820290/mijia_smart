@@ -54,11 +54,19 @@ public class UserServiceImpl implements UserService{
         }
     }
 
+    /**
+     * 获取所有用户
+     * @return 用户集合
+     */
     @Override
     public List<User> getAllUsers() {
         return userMapper.getAllUsers();
     }
 
+    /**
+     * 修改用户信息
+     * @param user
+     */
     @Override
     public void updataUser(User user) {
         userMapper.updateUser(user);

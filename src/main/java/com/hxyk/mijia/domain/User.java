@@ -14,12 +14,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class User implements Serializable{
     private int id;
-    private String nickName;
-    private String phoneNumber;
-    private String realName;
-    private String address;
-    private String password;
-    private String city;
+    private String nickName;        //昵称
+    private String phoneNumber;     //手机号
+    private String realName;        //真实姓名
+    private String address;         //详细地址
+    private String password;        //密码
+    private String city;            //  城市——小区
 
     public User(String nickName, String phoneNumber, String realName, String address, String password, String city) {
         this.nickName = nickName;

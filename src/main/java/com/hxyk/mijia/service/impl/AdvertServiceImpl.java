@@ -26,10 +26,6 @@ public class AdvertServiceImpl implements AdvertService{
         advertMapper.deleteAdvert(id);
     }
 
-    @Override
-    public void updateAdvert(Advert advert) {
-        advertMapper.updateAdvert(advert);
-    }
 
     @Override
     public void addAdvert(Advert advert) {

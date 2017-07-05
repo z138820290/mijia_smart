@@ -2,6 +2,7 @@
  * Created by Luck on 2017/6/29.
  */
 $(document).ready(function () {
+    //折叠菜单开始
     $(function(){
         var changeType=$('.nav_city').find('div');
         $.each(changeType,function(){
@@ -22,6 +23,11 @@ $(document).ready(function () {
             })
         })
     })
+    //折叠菜单结束
+
+
+    //城市分类菜单上城市首字母----开始
+
     //<![CDATA[
     $(function () {
         var divs =new Array();
@@ -39,10 +45,15 @@ $(document).ready(function () {
         })
     })
     //]]>
+
+    //城市分类菜单上城市首字母----结束
+
+    //点击小区 跳转到注册页面
     $(".area").click(function () {
         var city=$(this).parent().parent().siblings(".city").text();
         var area=$(this).text();
         var city_area=city+"-"+area;
         window.location="/user/register?city="+city_area;
     })
+
 })
