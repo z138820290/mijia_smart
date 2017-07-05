@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxyk.mijia.mapper.AdvertMapper">
+        <select id="getAllAdverts" resultType="Advert">
+            SELECT adId,url FROM advert
+        </select>
+        <delete id="deleteAdvert" parameterType="int">
+            DELETE FROM  advert WHERE adId=#{adId}
+        </delete>
+        <insert id="addAdvert" parameterType="Advert">
+            INSERT INTO advert(url) VALUES (#{url});
+        </insert>
+        <update id="updateAdvert" parameterType="Advert">
+            UPDATE advert SET url=#{url} WHERE adId=#{adId}
+        </update>
+</mapper>
+

@@ -95,7 +95,7 @@ public class UserController {
 
     @PostMapping("/register")
     @ResponseBody
-    public String isRegister(@RequestBody String string){
+    public String isRegister(@RequestBody String string,HttpServletRequest request){
         //获取前台ajax中的data数据
         //使用JSON对象转化接受的数据
         JSONObject jsonObject = JSONObject.fromObject(string);
@@ -105,6 +105,13 @@ public class UserController {
         String city=jsonObject.get("city").toString();
         String address=jsonObject.get("address").toString();
         String password=jsonObject.get("password").toString();
+        //清除session缓存的值
+        HttpSession session=request.getSession();
+        session.removeAttribute("phone_back");
+        session.removeAttribute("name_back");
+        session.removeAttribute("address_back");
+        session.removeAttribute("password_back");
+        session.removeAttribute("validation_back");
         //创建user对象
         User user=new User();
         user.setPhoneNumber(phone);

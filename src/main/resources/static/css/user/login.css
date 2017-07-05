@@ -4,7 +4,11 @@
 }
 html,body{
     width:100%;
-    background-color: #F54B65;
+    background-image: linear-gradient(left,#F85661,#F24268);
+    background-image: -webkit-linear-gradient(left,#F85661,#F24268);
+    background-image: -o-linear-gradient(left,#F85661,#F24268);
+    background-image: -moz-linear-gradient(left,#F85661,#F24268);
+    background-image: -ms-linear-gradient(left,#F85661,#F24268);
 }
 #container{
     width: 100%;;
@@ -13,13 +17,13 @@ html,body{
 }
 #header{
     width: 100%;
-    background-color: #F54C65;
 }
 #header img {
     width: 100%;
 }
 #main{
-    width: 100%;
+    width: 90%;
+   margin-left: 5%;
 }
 #input{
     width: 100%;
@@ -27,7 +31,7 @@ html,body{
     display: -webkit-flex;
     flex-flow: column wrap;
     color: white;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .info{
     width: 100%;
@@ -35,32 +39,37 @@ html,body{
 }
 #input input{
     width: 100%;
-    height: 1.5em;
+    height: 1em;
     border: none;
     background: none transparent scroll repeat 0% 0%;
     outline: none;
-    font-size: 1.5em;
+    font-size: 1em;
     border-bottom: 1px solid white;
 }
 #login{
     width: 100%;
-    height: 4em;
+    height: 3em;
     display: flex;
     display: -webkit-flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 #login button{
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     margin-top: 1.5em;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     height: 2em;
     line-height: 2em;
     border: 1px solid white;
     border-radius: 2em;
-    background-color:#F54C65 ;
+    color: white;
+    background-image: linear-gradient(left,#F85661,#F24268);
+    background-image: -webkit-linear-gradient(left,#F85661,#F24268);
+    background-image: -o-linear-gradient(left,#F85661,#F24268);
+    background-image: -moz-linear-gradient(left,#F85661,#F24268);
+    background-image: -ms-linear-gradient(left,#F85661,#F24268);
 }
 #forget{
     width: 100%;
@@ -84,4 +93,21 @@ html,body{
 a{
     color: white;
     text-decoration: none;
+}
+#top{
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+#top div{
+    font-size: 1.5em;
+    color: white;
+    font-family:黑体;
+    align-items:center;
+    margin-top: 10px;
+}
+.login,.register{
+    padding-top: 16px;
 }

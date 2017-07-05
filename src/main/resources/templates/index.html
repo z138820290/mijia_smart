@@ -11,27 +11,12 @@
     <div id="header">
         <div class="top" id="header_left" ><p id="area" th:text="${session.user ==null ? '请登录' : session.user.getCity().split('-')[1]}"></p></div>
         <div class="top" id="header_center"><p>迷家</p></div>
-        <div class="top" id="header_right"><p><img th:src="@{http://os4yv5mgw.bkt.clouddn.com/image/message.jpg}" width="60%" /></p></div>
+        <div class="top" id="header_right"><p><img th:src="@{http://os4yv5mgw.bkt.clouddn.com/image/message.jpg}" width="80%" /></p></div>
             <div id="banner_tabs" class="flexslider">
                 <ul class="slides">
-                    <li>
-                        <a title="" target="_blank" href="#">
-                            <img width="100%" height="20%" alt="" src="/image/banner_1.jpg" th:src="@{http://os4yv5mgw.bkt.clouddn.com/image/banner_1.jpg}"/>
-                        </a>
-                    </li>
-                    <li>
-                        <a title="" href="#">
-                            <img width="100%" height="20%" alt="" src="/image/banner_2.jpg" />
-                        </a>
-                    </li>
-                    <li>
-                        <a title="" href="#">
-                            <img width="100%" height="20%" alt="" src="/image/banner_3.jpg"/>
-                        </a>
-                    </li>
-                    <li>
-                        <a title="" href="#">
-                            <img width="100%" height="20%" alt="" src="/image/banner_4.jpg"/>
+                    <li th:each="advert : ${adverts}">
+                        <a title=""  href="#">
+                            <img width="100%" height="20%" alt="" src="/image/banner_1.jpg" th:src="${advert.url}"/>
                         </a>
                     </li>
                 </ul>
@@ -40,10 +25,7 @@
                     <li><a class="flex-next" href="javascript:;">Next</a></li>
                 </ul>
                 <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
-                    <li><a>1</a></li>
-                    <li><a>2</a></li>
-                    <li><a>3</a></li>
-                    <li><a>4</a></li>
+                    <li th:each="point : ${points}"><a th:text="${point}"></a></li>
                 </ol>
             </div>
         <div class="swiper-container" >

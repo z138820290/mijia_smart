@@ -9,6 +9,13 @@
 <body>
 <div id="message"></div>
     <div id="container">
+        <div id="top">
+            <div class="back">
+                <img src="/image/user/icon_back.jpg" height="100%" width="100%"/>
+            </div>
+            <div class="login">登录</div>
+            <div class="register">注册</div>
+        </div>
         <div id="header"><img src="/image/user/login.jpg"/></div>
         <div id="main">
             <div id="input">
@@ -18,7 +25,7 @@
                 <div class="info" ><input type="password" id="password"/></div>
             </div>
         </div>
-        <div id="login"><button>登录</button><div id="forget"><a href="/user/find">忘记密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/user/register">点击注册</a></div></div>
+        <div id="login"><button>登录</button><div id="forget"><a href="/user/find">忘记密码</a></div></div>
     </div>
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script>
@@ -54,6 +61,12 @@
                     }
                 })
             })
+        })
+        $(".back").click(function () {
+            window.location="/index";
+        })
+        $(".register").click(function () {
+            window.location="/user/register"
         })
     </script>
 </body>
