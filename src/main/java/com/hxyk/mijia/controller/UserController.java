@@ -115,6 +115,7 @@ public class UserController {
         //创建user对象
         User user=new User();
         user.setPhoneNumber(phone);
+        user.setNickName(phone.substring(0,3)+"****"+phone.substring(7));
         user.setRealName(name);
         user.setCity(city);
         user.setAddress(address);

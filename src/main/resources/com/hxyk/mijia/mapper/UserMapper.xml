@@ -3,8 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hxyk.mijia.mapper.UserMapper">
     <insert id="addUser" parameterType="User">
-        INSERT INTO users(phoneNumber,realName,address,password,city)
-        VALUE (#{phoneNumber},#{realName},#{address},#{password},#{city})
+        INSERT INTO users(phoneNumber,nickName,realName,address,password,city)
+        VALUE (#{phoneNumber},#{nickName},#{realName},#{address},#{password},#{city})
     </insert>
     <select id="getUserByPhone" parameterType="String" resultType="User">
         SELECT * FROM users WHERE phoneNumber=#{phoneNumber}
