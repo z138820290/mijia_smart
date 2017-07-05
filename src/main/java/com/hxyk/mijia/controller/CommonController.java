@@ -23,18 +23,21 @@ public class CommonController {
     @Autowired
     private AdvertServiceImpl advertServiceImpl;
 
+    //欢迎页面
     @GetMapping("/")
     public String toWelcome(){
         return "welcome";
     }
+    //首页
     @GetMapping("/index")
     public String toIndex(Model model){
+        //获取所有轮播广告
         List<Advert> adverts = advertServiceImpl.getAllAdverts();
         int i=0;
+        //轮播焦点
         List points=new ArrayList();
         for (Advert advert:adverts) {
             i++;
-            System.out.println();
             points.add(i);
 
         }
