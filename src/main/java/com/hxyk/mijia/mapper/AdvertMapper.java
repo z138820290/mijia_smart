@@ -30,4 +30,6 @@ public interface AdvertMapper {
      * @param advert
      */
     public void addAdvert(Advert advert);
+
+    public void updateAdvert(Advert advert);
 }

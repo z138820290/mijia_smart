@@ -24,6 +24,58 @@ $(document).ready(function () {
         uploadUrl: 'up-z0.qiniu.com' // 七牛统一的一个上传域名，固定
     });
 
+    $('.update').each(function () {
+        var i = "#"+$(this).attr("id");
+        console.debug(i)
+        qiniu.bind($(i), {
+            filter: 'image'
+        }).on('file', function(file) {
+            var imagesBucket = qiniu.bucket('mijia', {
+                putToken: _token
+            });
+            var fileName = file.name;
+            fileName = 'image/' + fileName;
+
+//                    return;
+
+            console.debug('文件名：'  + fileName);
+
+            // Upload
+            imagesBucket.putFile(fileName, file)
+                .then(
+                    function(reply) {
+                        console.debug(reply.hash);
+                        console.debug(reply.key);
+                        var se = new Date().getMilliseconds();
+                        var _data={};
+                        _data.url=uploadSpace + '/' + fileName+"?v="+se;
+                        _data.adId=i.split("#")[1];
+                        $.ajax({
+                            type:"put",
+                            url:"/admin/adv/"+_data.adId,
+                            data:JSON.stringify(_data),
+                            contentType:"application/json",
+                            success:function (data) {
+                                console.debug(data)
+                                window.location.reload();
+                            }
+                        })
+                    },
+                    function(data) {
+                        // 上传失败
+                        console.error(data);
+                    }
+                );
+        });
+
+        $.extend({
+            upload2Qiniu:function () {
+
+            }
+        });
+    })
+
+
     qiniu.bind($('#submit'), {
         filter: 'image'
     }).on('file', function(file) {
@@ -33,11 +85,9 @@ $(document).ready(function () {
         var fileName = file.name;
 
         fileName = 'image/' + fileName;
-
 //                    return;
 
         console.debug('文件名：'  + fileName);
-
 
         // Upload
         imagesBucket.putFile(fileName, file)
@@ -62,17 +112,11 @@ $(document).ready(function () {
                 },
                 function(err) {
                     // 上传失败
-                    console.error(err);
+                    console.error("上传失败");
                 }
             );
     });
 
-
-    $.extend({
-        upload2Qiniu:function () {
-
-        }
-    });
     //<![CDATA[
     $(".delete").click(function () {
         var _data={};

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit"/>
+<title></title>
+  <link rel="stylesheet" href="/css/admin/pintuer.css"/>
+  <link rel="stylesheet" href="/css/admin/admin.css"/>
+    <link rel="stylesheet" href="/css/admin/addCity.css"/>
+</head>
+<body>
+<div class="panel admin-panel margin-top">
+  <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>地区管理-添加小区</strong></div>
+  <div class="body-content">
+    <form method="post" class="form-x" action="/admin/addCity">
+      <div class="form-group">
+        <div class="label">
+          <label>选择城市：</label>
+        </div>
+          <div class="field">
+                  <select class="province input">
+                      <option value="0">请选择省份</option>
+                  </select>
+                  <select id="city" class="city input" name="city">
+                      <option value="0">请选择城市</option>
+                  </select>
+              <div class="tips"></div>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="label">
+              <label>小区名称：</label>
+          </div>
+          <div class="field">
+              <input type="text" id="area" class="input w80"  name="area"/>
+              <div class="tips"></div>
+          </div>
+       </div>
+      <div class="form-group">
+        <div class="label">
+          <label>小区描述：</label>
+        </div>
+        <div class="field">
+          <textarea class="input" style="height:80px"></textarea>
+          <div class="tips"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit">添加小区</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/admin/selectCity.js"></script>
+</body>
+</html>

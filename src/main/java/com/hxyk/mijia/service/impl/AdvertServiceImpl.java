@@ -31,4 +31,9 @@ public class AdvertServiceImpl implements AdvertService{
     public void addAdvert(Advert advert) {
         advertMapper.addAdvert(advert);
     }
+
+    @Override
+    public void updateAdvert(Advert advert) {
+        advertMapper.updateAdvert(advert);
+    }
 }

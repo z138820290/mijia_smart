@@ -1,0 +1,8 @@
+
+select{
+    background-color: transparent;
+    border: solid 1px;
+    -webkit-appearance: initial;
+    -o-appearance: initial;
+    display: inline;
+}

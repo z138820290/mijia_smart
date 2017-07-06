@@ -24,4 +24,6 @@ public interface CityService {
      * @return 城市对象
      */
     public City getCityByName(String cityName);
+
+    public void addCity(City city);
 }

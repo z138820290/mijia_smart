@@ -27,4 +27,6 @@ public interface AdvertService {
      * @param advert
      */
     public void addAdvert(Advert advert);
+
+    public void updateAdvert(Advert advert);
 }

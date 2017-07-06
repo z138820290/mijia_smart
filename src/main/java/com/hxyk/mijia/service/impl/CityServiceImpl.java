@@ -36,4 +36,37 @@ public class CityServiceImpl implements CityService{
     public City getCityByName(String cityName) {
         return cityMapper.getCityByName(cityName);
     }
+
+    /**
+     * 获取所有城市
+     * @return
+     */
+    public List<City> getAllcity() {
+        return cityMapper.getAllCity();
+    }
+
+    /**
+     * 添加城市
+     * @param city
+     */
+    @Override
+    public void addCity(City city) {
+        //获取所有城市
+        List<City> cities=cityMapper.getAllCity();
+        //临时变量
+        int i=0;
+        //遍历城市集合
+        for (City city1: cities) {
+            //如果传入城市的名称在数据库已经存在，结束循环，将此次魂环的城市赋值给参数
+            if (city.getCityName().equals(city1.getCityName())){
+                city=city1;
+                i=1;
+                break;
+            }
+        }
+        //如果城市名不存在，向数据库中添加城市
+        if (i!=1){
+            cityMapper.addCity(city);
+        }
+    }
 }

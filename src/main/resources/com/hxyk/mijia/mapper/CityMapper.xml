@@ -14,5 +14,14 @@
     <select id="getAllCities" parameterType="String" resultMap="selectAllCities">
         select city.cityId,city.cityName,areaId,areaName  from city,area where get_first_pinyin_char(cityName) = #{firstWord} AND area.cityId = city.cityId
     </select>
+    <select id="getAllCity" resultType="City">
+        SELECT * FROM city;
+    </select>
+    <select id="getCityByName" parameterType="String" resultType="City">
+        SELECT * FROM city WHERE cityName=#{cityName}
+    </select>
+    <insert id="addCity" parameterType="City">
+        INSERT INTO city(cityName) VALUES (#{cityName})
+    </insert>
 </mapper>
 

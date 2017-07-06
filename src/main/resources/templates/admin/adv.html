@@ -26,13 +26,14 @@
     </tr>
    
     <tr th:each="advert : ${adverts}">
-      <td th:class="advertId" th:text="${advert.adId}"></td>
+      <td class="advertId"  th:text="${advert.adId}"></td>
       <td class="imageUrl"><img th:src="${advert.url}" alt="" width="120" height="50" /></td>
       <td>首页焦点图</td>
       <td>描述文字....</td>
       <td class="sortId">1</td>
       <td><div class="button-group">
-      <span class="button border-red delete"><span class="icon-trash-o"></span> 删除</span>
+        <span class="button border-main update" th:id="${advert.adId}"><span class="icon-edit"></span> 修改</span>
+        <span class="button border-red delete"><span class="icon-trash-o"></span> 删除</span>
       </div></td>
     </tr>
   </table>

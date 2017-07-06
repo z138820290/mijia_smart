@@ -26,4 +26,16 @@ public interface CityMapper {
      * @return
      */
     public City getCityByName(String cityName);
+
+    /**
+     * 获取所有城市
+     * @return
+     */
+    public List<City> getAllCity();
+
+    /**
+     * 添加城市
+     * @param city
+     */
+    public void addCity(City city);
 }
